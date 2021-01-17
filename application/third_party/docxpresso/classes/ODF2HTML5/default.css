@@ -1,0 +1,152 @@
+body {
+    background-color: #f6f6ff;
+    box-sizing: content-box !important;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 83.35%;
+}
+
+/*hack for IE */
+wbr:after { content: "\00200B"; }
+
+/*hack to get some extra top margin for anchors if needed*/
+span[id^="_Toc"]{
+    padding-top: 10px;
+    margin-top: -10px;
+}
+/* give zero default top and bottom paddings for paragraphs*/
+p {
+    color: #000000;
+    line-height: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+span {
+    color: #000000;
+}
+span.dropcap {
+    color: inherit;
+    font-family: inherit !important;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: 0;  
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1;
+    color: inherit;
+}
+/* give zero default top and bottom paddings for paragraphs in tables and lists*/
+table p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+ul, ol {
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+ul li, ol li {
+    list-style-type: none;
+}
+
+li p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+table {
+    border: none;
+}
+td {
+    vertical-align: top;
+    border: none;
+}
+th {
+    vertical-align: top;
+    border: none;
+}
+
+div {
+    margin-bottom: 10pt;
+}
+
+footer {
+    clear: both;
+}
+
+
+td[data-sorting] p:before, th[data-sorting] p:before {
+    content: ' ';
+    padding-right: 16px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALAQMAAACTYuVlAAAAA3NCSVQICAjb4U/gAAAABlBMVEUjLTD////tm/tRAAAACXBIWXMAAAsSAAALEgHS3X78AAAAFnRFWHRDcmVhdGlvbiBUaW1lADAyLzEwLzE2RFpLjQAAACB0RVh0U29mdHdhcmUATWFjcm9tZWRpYSBGaXJld29ya3MgTVi7kSokAAAAI0lEQVR4nGP4/4Dh9wOGjw8YHjxgOJDA8B9MPgCLAMX/PwAANZUStiyS6NsAAAAASUVORK5CYII=);
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.sortDecorator {
+    border-bottom: 3px solid #b70000 !important;
+}
+
+/* This is a spacial class designed to remove unwanted bullets when a li has
+ul as its first child*/
+.removeBullet:before {
+    content: none !important;
+}
+
+.h5p_layout {
+    position:relative; 
+    width: 21cm; 
+    display: table; 
+    background-color: #ffffff; 
+    margin: 25px auto; 
+    box-shadow: 0px 0px 12px 1px rgba(50, 50, 50, 0.75);
+}
+/*to make sure that floating elements are always inside the document bounds*/
+.h5p_layout:after {
+    content: " ";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+/* a default layout for documents without maste styles */
+.h5p_default_layout {
+    margin-top: 3.6rem;
+    margin-left: 8.50464rem;
+    margin-bottom: 3.6rem;
+    margin-right: 8.50464rem;
+    writing-mode: lr-tb;
+}
+
+/*responsive tables*/
+.dxoResponsiveTable{
+    margin: 0 !important;
+    padding: 0 !important;
+    /*overflow-x: auto !important; TODO: sort problems with processing*/
+}
+
+@media print {
+    @page {
+    }
+    body {
+       background-color: transparent;
+    }
+    .h5p_page {
+        position:relative; 
+        width: auto; 
+        display: table; 
+        background-color: #ffffff; 
+        margin: auto; 
+        box-shadow: none; 
+    }
+    table {page-break-inside: avoid}
+    h1, h2, h3, h4 {page-break-after: avoid}
+}
+

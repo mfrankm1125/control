@@ -1,0 +1,124 @@
+{
+    "security": {
+        "APIKEY": "yuaid7asish357s7s",
+        "timestamp": "134343343",
+        "publicKey": "sdf87dfgjelt89u"
+    },
+    "template": "path/to/template",
+    "output": {"format": "odt|pdf|doc|doc(legacy)|docx|rtf", "response": "path|doc", "name": "example_name", "repairVariables": true},
+    "dataSources": [
+        {
+            "connector": "path/JSON/file/with all connection data",
+            "queries": [
+                        {
+                            "query": "SELECT * FROM table where id= :id",
+                            "parameters": {"id": 20},
+                            "dataBindings": {
+                                "field_1": "var_1",
+                                "field_2": "var_2",
+                                "field_3": "var_3"
+                            },
+                            "groupBy": ["var_1"],
+                            "format": ["{{", "}}"],
+                            "element": "text|paragraph|list|table|image",
+                            "target": "document|header|footer",
+                            "html": true,
+                            "parse-line-breaks": false,
+                            "block-type": false,
+                            "image": false,
+                            "match": 1,
+                            "docType": "default"
+                        }
+                    ]
+        }
+    ],
+    "HTML": [
+        {
+            "html": "url encoded data source or path to file",
+            "baseURL": "http://whatever.com",
+            "encoding": "UTF-8",
+            "isFile": false,
+            "context": {
+                "method": "GET|POST",
+                "header": {"Referer": "ref", "User-agent": "agent", "otherHeaders": "..."},
+                "proxy": "address of the proxy server",
+                "request_fulluri": false,
+                "follow_location": 1, 
+                "max_redirects": 20,
+                "protocol_version": "1.0"
+            }   
+        }
+    ],
+    "replace": [
+        {
+            "vars": [
+                        {
+                         "var": "variable name",
+                         "values": ["first", "second", "third"],
+                         "html": true,
+                         "parse-line-breaks": false,
+                         "block-type": false,
+                         "image": false,
+                         "match": 1,
+                         "width": "200px",
+                         "height": "150px"
+                        },
+                        {
+                         "var": "other variable name",
+                         "values": ["aaa", "bbb", "cccc"],
+                         "html": true,
+                         "parse-line-breaks": false,
+                         "block-type": false,
+                         "image": false,
+                         "match": 1,
+                         "width": "200px",
+                         "height": "150px"   
+                        }
+            ],
+            "options": {
+                        "format": ["{{", "}}"],
+                        "element": "text|paragraph|list|table|image",
+                        "target": "document|header|footer",
+                        "html": true,
+                        "parse-line-breaks": false,
+                        "block-type": false,
+                        "image": false,
+                        "match": 1,
+                        "docType": "default"
+            }
+        }
+    ],
+    "remove": [
+        {
+            "options": {
+                        "needle": "string of text",
+                        "element": "text|bookmark|paragraph|list|list-item|table|table-row|image|chart|section|textbox|heading",
+                        "target": "document|header|footer",
+                        "heading-level": 1,
+                        "match": 1,
+                        "container": false
+            }
+        }
+    ],
+    "clone": [
+        {
+            "options": {
+                        "needle": "string of text",
+                        "element": "text|bookmark|paragraph|list|list-item|table|table-row|image|chart|section|textbox|heading",
+                        "repeat": 1,
+                        "target": "document|header|footer",
+                        "heading-level": 1,
+                        "match": 1,
+                        "container": false
+            }
+        }
+    ],
+    "charts": [
+        {
+            "var": "chart title",
+            "format": ["{{", "}}"],
+            "data": "json encoded chart data as defined in the replaceChartdata method",
+            "match": 1
+        }
+    ]
+}

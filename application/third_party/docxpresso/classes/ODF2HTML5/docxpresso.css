@@ -1,0 +1,6 @@
+/* no styles at this level but the ones that suppressed numbering in lists*/
+/* This is a spacial class designed to remove unwanted bullets when a li has
+ul as its first child*/
+.removeBullet:before {
+    content: none !important;
+}

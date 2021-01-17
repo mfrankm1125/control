@@ -1,0 +1,46 @@
+{
+    "docxpresso_id": 0,
+    "groups": [
+        {   "name" : "group_name",
+            "id": "uniqid",
+            "type": "table|list|block",
+            "tip": "group tip text",
+            "active": true,
+            "variables": ["variable 1", "variable 2"],
+            "comment": "additional internal info"
+        },
+        {   "name" : "group_name",
+            "id": 2,
+            "type": "table|list|block",
+            "tip": "group tip text",
+            "active": true,
+            "variables": ["variable 11 ", "variable 22"],
+            "visibility_condition": "boolean condition"
+        }
+        ],
+    "data":[
+        {   "name" : "variable_name",
+            "label": "label_name",
+            "tip": "tip text",
+            "editable": true,
+            "richText": true,
+            "resourceId": 45,
+            "options": ["option 1", "option_2"],
+            "validation": "date|number|email|...",
+            "comment": "additional info"
+        },
+        {   "name" : "variable_name",
+            "label": "label_name",
+            "tip": "tip text",
+            "editable": false,
+            "formula": "como conseguir el resultado",
+            "richText": true,
+            "validation": "date|number|email|...",
+            "comment": "additional internal info"
+        }                   
+    ],
+    "varValues": {
+        "name_1": ["value_1", "value_2"],
+        "name_2": ["value_1", "value_2", "value_3"]
+    }
+}

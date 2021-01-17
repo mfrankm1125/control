@@ -1,0 +1,271 @@
+DOCXPRESSO v3.5 INSTALLATION NOTES: WINDOWS PLATFORM
+====================================================
+
+CORE INSTALLATION
+-----------------
+
+The installation of the core Docxpresso package is pretty simple and can be done
+in a few steps:
+
+    * Uncompress it somewhere in your server directory tree. It is strongly 
+      recommended that the library should not be directly accesible to outside 
+      users for obvious security reasons.
+    * Check that the [path/Docxpresso package]/log and tmp folders are writable 
+      by the user of the package (usually a web server).
+    * Edit the config.ini file that you can find in the package root directory:
+      include the license code, if you already have one, in the key variable. 
+      You can always do that at a later time if you just intend to test the 
+      library or use it for personal means.
+
+You should also make sure that the following modules and extensions are 
+installed:
+
+    * PHP 5.3 or higher (although we recommend PHP 7.*)
+    * ZipArchive (usually installed by default)
+    * DOMDocument (usually installed by default)
+    * Tidy (although not strictly required is highly recommended)
+
+
+Run any of the examples conained in the samples folder (explicitely setting the 
+real path to the library) to check that everything work as expected. If you have
+already installed a reasonable recent PHP version (5.3 or higher) and the 
+ZipArchive and DOMDocuemnt modules are already installed that should be all and 
+you may start right away to generate your documents in .odt or .doc formats!!
+
+FULL INSTALLATION (PDF generation and advanced functionality)
+-------------------------------------------------------------
+
+If you need:
+    
+    * to generate documents in PDF, RTF or DOCX format or
+    * update automatically the Table of Contents (TOC) in any format,
+    * update automatically some automatic document fields,
+
+you need a "full installation" so you should follow these additional steps:
+
+    * Install a (full) recent version of LibreOffice (recommended) or OpenOffice 
+      (no support for .docx output) directly from their websites or from your 
+      system package repository. The library only uses these packages in 
+      headless mode so you do not need any kind of windows system installed in 
+      your server.
+    * Further edit the config.ini file:
+        ** Set the "os" option to LINUX (this option also will do for UNIX or 
+           UNIX-like platforms like MAC).
+        ** Set the path to your LibreOffice or OpenOffice soffice executable 
+           file, usually /usr/bin/soffice, although you should always check the 
+           real path in your system to avoid malfunctioning of the application.
+
+    * Install the corresponding Docxpresso.oxt extension via the unopkg command 
+      (the unopkg executable is located in the same directory as soffice):
+        ** This file can be found either in the extensions/LibreOffice or 
+           extensions/OpenOffice folder of the package, depending on the 
+           conversion engine that you plan to use.
+        ** Open a shell and navigate to the folder of your LibreOffice or 
+           OpenOffice installation.
+        ** Make sure that there is no currently any Libre or Open Office 
+           instance running on your system.
+        ** Run one the following commands: 
+           If you are going to use Libre Office:
+           sudo unopkg add --shared [path]/extensions/LibreOffice/Docxpresso.oxt
+           If you are going to use Open Office:
+           sudo unopkg add --shared [path]/extensions/OpenOffice/Docxpresso.oxt
+           Where [path] stands for the full path to your Docxpresso 
+           installation. In order to do so you need administration privileges 
+           (run as sudo). 
+
+IMPORTANT: you may ommit the --shared flag in the command and avoid the need to 
+use sudo but in that case the extension will only be available to the user that 
+performed the installation and you should double check that the corresponding
+user has writing permissions in all the required folders.
+
+UPGRADING: if you are upgrading a current Docxpresso installation you should first
+remove the previous version of the Docxpresso.oxt extension. You may do so with the
+command:
+sudo unopkg remove --shared Docxpresso.oxt
+If you did not install the extension as a shared extension you may simply remove the
+"sudo" and "--shared" bits of the above command. 
+
+After all of these we are almost done. We only need to:
+    * Run in the command line the docxpresso.php script that you may find in the 
+      root folder of the Docxpresso package:
+        ** Run from the command line: 
+           nohup php [path]/docxpresso.php > /dev/null &
+        ** Check that the [path]/csv folder is writable by the user that is
+           running docxpresso.php
+        ** Check that the process is correctly running with, for example: 
+           ps aux | grep docxpresso.php
+    * Make sure that the user running the docxpresso.php "daemon" has writing
+      permissions in the folder were we want to save the final document.
+
+And that should be it!!
+
+FONTS
+-----
+All editable document formats like .doc, .odt, .docx or .rtf will use the fonts
+installed in the end user device to render the document in whatever Office suite
+the end user is using to open them but that is not the case for PDFs.
+
+Although the conversion engine will try to do its best to use a installed font
+that better fits the required fonts If you want to have a perfect PDF rendering 
+you need to have installed in your server all the fonts required by the document.
+
+Beware that not all fonts may be free so you should first read their 
+corresponding license files.
+
+This said we recommend that you install the ttf-mscorefonts-installer packages
+that will cover some of the most frequently used fonts in Windows devices:
+    * Andale Mono
+    * Arial Black
+    * Arial (Bold, Italic, Bold Italic)
+    * Comic Sans MS (Bold)
+    * Courier New (Bold, Italic, Bold Italic)
+    * Georgia (Bold, Italic, Bold Italic)
+    * Impact
+    * Times New Roman (Bold, Italic, Bold Italic)
+    * Trebuchet (Bold, Italic, Bold Italic)
+    * Verdana (Bold, Italic, Bold Italic)
+    * Webdings
+
+
+HOW TO BOOST PERFORMANCE
+------------------------
+
+As explained above the generation of PDF and other formats different from 
+.odt or .doc requires the use of Libre or Open Office. 
+This task is controlled via the docxpresso.php script that should be run in the 
+background as a "daemon" as previously explained. The inner workings of this 
+format transformation are as follows:
+    1. The "core" of the Docxpresso package generates a temporary .odt document 
+       that is stored in the final destination of the requested document.
+    2. The package creates a .csv file in the csv library folder with all the 
+       required info: requested file name and format as well as other document 
+       options.
+    3. The unnatended docxpresso.php process scans that csv directory for 
+       documents to be generated with the requested options and makes a call to 
+       the Office macros installed with the Docxpresso.oxt extension.
+    4. Those macros do the final processing and generate the final document.
+    5.The docxpresso.php do the final cleaning of all temporary files.
+
+Therefore the Docxpresso package should call Libre or Open Office for each 
+generation of documents in .pdf, .docx or .rtf formats with the corresponding 
+time, CPU and RAM consumption. For example, although this may depend on the 
+platform, there is an average 0.4s delay in loading the Libre or 
+Open Office package.
+
+This time may be dramatically decreased if there is already a running copy of 
+Libre or Open Office in the system.
+
+Although this can be manually done, the library can do the job for you just by 
+setting the auto config parameter to true.
+
+This may have a little cost in the form of a continuous use of RAM by the 
+application (around 50MB) but completely eliminates the 0.4s time overhead 
+allowing that the generation of a typical pdf of a few pages takes only a 
+few hundredths of a second.
+
+There is another configurable parameter in config.ini: refresh that can be 
+manually tuned. We now pass to explain its origins.
+
+Depending on your system Libre and Open Office may not clean its Graphics Memory 
+Cache as often as desired until they are closed. So if we have a copy of the 
+suite running indefinetily in the background the memory consumption may grow in 
+time and ultimately eat all of our precious RAM resources.
+
+The refresh parameter control after how many document generation cycles the 
+RAM memory assigned to Libre or Open Office should be flushed. This is done 
+by closing and reopening the Office package, a process that may take a few 
+hundrendths of a second (typically around 0.15s)
+
+
+MONITORING DOCXPRESSO
+---------------------
+
+Although maximum care has been taken to offer a stable production environment, 
+whenever there are processes in the background that run uninterruptedly, 
+like the format conversor, for long periods of time once in a while problems 
+may pop up.
+
+Docxpresso comes bundle with an optional monitoring script that periodically 
+checks that the package is properly working by detecting if there are pending 
+conversions.
+
+There are two parameters that govern the monitoring and that can be tuned 
+in monitor.php:
+    * sleepTimer: the time in microseconds between consecutive checks.
+    * maxRepetitions: an integer that bounds the number of times that the 
+      monitoring software detects a pending conversion before relaunching the 
+      library processes.
+
+Whenever there is a conversion running for more than 
+sleepTimer * (maxRepetitions + 1) microseconds (this can be due to either the 
+hanging of Libre or Open Office or simply because the conversion is taken too 
+long because of a unexpectedly large file or because the system has somehow 
+slowed down) the monitoring script assumes that there is a problem with the 
+conversion and restart the docxpresso and soffice executables.
+
+For example, setting sleepTimer to 2000000 and maxRepetitions to 14 we make sure 
+that the system will never spend more than 30 seconds in a single process.
+
+Whenever the application is restarted automatically by the monitoring script an 
+entry with all the required data is written in monitor.log (that can be found in
+the csv folder).
+
+In order to run the monitoring script (please, first check that Docxpresso is 
+properly running) you should:
+    1. Open monitor.php and edit the sleepTimer and maxRepetitions parameters to 
+      suit your particular needs.
+    2. Run nohup php monitor.php > /dev/null &. it is very important that the 
+       process should be run by the same user that run the docxpresso.php script 
+       to avoid permission conflicts.
+
+
+TROUBLESHOOTING
+--------------
+
+Although, in principle, the installation of the package should be rather 
+straightforward if you follow all the above instructions there may pop up from 
+time to time certain difficulties that should not be difficult to overcome.
+
+You may start by running in the command line the check.php script that may
+give you some hints about what may be going wrong with your installation. If
+that does not show enough, please, follow these steps by order:
+    1. Check core functionality by first generating a very simple, i.e. standard 
+       Hello World script, .odt file with full PHP error reporting 
+       (error_reporting(E_ALL)). If the document is not generated check that: 
+        * Your PHP version is 5.3 or higher.
+        * There is no lacking any required module like ZipArchive that, although 
+          usually installed by default, your installation may be lacking.
+        * The folder where you are trying to store the document is writable.
+        * The package log folder is writable.
+
+    2. Test full functionality by, for example, trying to generate the same 
+       document as before but in .pdf format. If the system fails check that: 
+        * The path to soffice set in config.ini is the correct one.
+        * The Docxpresso.odt extension has been properly installed by running: 
+          sudo unopkg list --shared Docxpresso.oxt (if you did not installed the 
+          extension for all users you may simply run unopkg list Docxpresso.oxt). 
+          If you get the message: ERROR: there is no such extension deployed try 
+          to install it again (be careful typing the full path to the required 
+          extension).
+        * The docxpresso.php script is running by typing: 
+          ps aux | grep docxpresso.php and checking that it has a valid PID 
+          (process id). If it is not running, restart it again via the:
+          nohup php [path]/docxpresso.php > /dev/null & command.
+        * The user running the docxpresso.php script has read and write access 
+          to the csv package folder and to the folder where the final document 
+          should be stored.
+        * The user running the docxpresso.php script has permission to run Libre 
+          or Open Office (you just can do that by typing, for example, 
+          /usr/bin/soffice in the command line or whatever maybe the path to the 
+          soffice executable).
+        * There are no other Libre or Open Office instances running in headless 
+          mode. To make sure just kill all current soffice processes.
+
+
+In the unlikely case that the problem persists you may run directly 
+docxpresso.php in the foreground and check if there is any error thrown 
+in the console.
+
+SUPPORT: if problems persist, please, contact us via our website contact form:
+http://www.docxpresso.com/contact and we will try to help you to solve any
+standing issue regarding installation.

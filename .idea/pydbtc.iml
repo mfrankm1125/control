@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/vendor/bacon/bacon-qr-code" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/evenement/evenement" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/giansalex/peru-consult" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/core" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/data" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/greenter" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/htmltopdf" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/report" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/ubl-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/ws" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/xml" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/greenter/xmldsig" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/luecano/numero-a-letras" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mikehaertl/php-shellcommand" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mikehaertl/php-tmpfile" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mikehaertl/phpwkhtmltopdf" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/mikey179/vfsstream" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/dns" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/event-loop" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/promise" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/promise-timer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/socket" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/react/stream" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/ringcentral/psr7" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-ctype" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/validator" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/twig/twig" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

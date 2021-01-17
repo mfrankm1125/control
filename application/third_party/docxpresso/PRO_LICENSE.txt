@@ -1,0 +1,94 @@
+General DOCXPRESSO PRO license conditions
+========================================
+
+This irrevocable PERPETUAL LICENSE covers the PRO version 1.0 package 
+of DOCXPRESSO.
+
+    * This license gives the holder the right to install the DOCXPRESSO library 
+      PRO package in ONE server.
+    * This license also grants the holder the right to install the DOCXPRESSO 
+      library PRO package in a private network, i.e. localhost or a LAN, for 
+      development and testing purposes but not for production.
+    * The license holder is allowed to modify the source code of the DOCXPRESSO 
+      PRO library in order to further adapt it to his needs but in no event 
+      will the original copyright holders of DOCXPRESSO be held responsible for 
+      action or actions resulting from any modifications of the source.
+    * The license holder may not redistribute DOCXPRESSO PRO in its current 
+      version or with any modification of the source code introduced by 
+      the holder.
+    * The license holder can not redistribute DOCXPRESSO PRO package as part 
+      of other product without the explicit permission by writing of the 
+      copyright holder of DOCXPRESSO PRO.
+    * The license holder will not remove or modify any copyright notice from 
+      any of the source files included in the DOCXPRESSO PRO package.
+
+Limitations of use
+==================
+The following restrictions apply:
+    * The license holder may not offer, for free or for a fee, the services 
+      provided by DOCXPRESSO PRO in conjunction with its own services as part 
+      of a SaaS or a PaaS without the explicit permission by writing of the 
+      copyright holder of DOCXPRESSO.
+    * The license holder may not redistribute the DOCXPRESSO PRO functionality 
+      via an API so third parties would be able to integrate DOCXPRESSO 
+      functionality in its own services portfolio via a remote connection.
+
+Limitation of Liability
+=======================
+In no event, except for intellectual property claim, shall the copyright holders
+of DOCXPRESSO PRO be liable for any damages whatsoever, including, but not 
+restricted to, lost revenue or profit or other direct, indirect, special, 
+incidental or consequential damages, except to the extent invariable law, 
+if any, provides otherwise.
+
+Limited Warranty
+================
+No-nonsense Labs warrants that licensor is owner of the software with authority 
+to license the software to licensee and that the software does not infringe 
+third party intellectual property rights. Licensor agrees to indemnify, 
+defend and hold harmless licensee from any claims either that licensor 
+does not owns the software or that the software infringes a third party's 
+intellectual property.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE 
+DISCLAIMED. IN NO EVENT SHALL NO-NONSENSE LABS S.L. OR CONTRIBUTORS BE LIABLE 
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL 
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR 
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER 
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE 
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+License Information Regarding Bundled Third-Party Software
+==========================================================
+LibreOffice
+-----------
+LibreOffice is Free Software and is made available subject to the terms of the 
+Mozilla Public License v2.0 that is reproduced in: 
+http://www.libreoffice.org/about-us/licenses/.
+
+Monolog
+-------
+Copyright (c) 2011-2014 Jordi Boggiano
+
+Distributed under the following license agreement:
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal 
+in the Software without restriction, including without limitation the rights 
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+copies of the Software, and to permit persons to whom the Software is furnished 
+to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in 
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN 
+THE SOFTWARE.

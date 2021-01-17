@@ -1,0 +1,93 @@
+.h5p_table {
+    position: relative;
+}
+.h5p_rowgroup {
+    background-color: #ffffcc;
+}
+.h5p_rowbutton {
+    width: 18px; 
+    background-color: #990000; 
+    padding:0; 
+    margin:0; 
+    text-align: center;
+    color: white; 
+    font-weight:bold; 
+    position: absolute; 
+    bottom: 0;  
+    margin-bottom: -18px;
+    font-size: 14px;
+}
+pre.h5p_pretable {
+    margin: 0;
+    padding: 0;
+    height: 18px;
+}
+.h5p_listitem {
+    background-color: #ffffcc;
+    position: relative;
+}
+.h5p_listitembutton {
+    width: 18px; 
+    background-color: #990000; 
+    padding:0; 
+    margin:0; 
+    text-align: center;
+    color: white; 
+    font-weight:bold; 
+    position: absolute; 
+    bottom: 0;
+    left: 0;
+    margin-bottom: -18px;
+    font-size: 14px;
+    text-indent: 0 !important;
+}
+pre.h5p_prelistitem {
+    margin: 0;
+    padding: 0;
+    height: 18px;
+}
+span.h5p_varspan {
+    background-color: #ccffcc;
+    /*white-space: nowrap;*/
+}
+div.h5p_wrappingdiv {
+    background-color: #fff5f5;
+    border: 1px dotted #990000;
+    margin-bottom: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+}
+.h5p_divbutton {
+    width: 18px; 
+    background-color: #990000; 
+    padding:0; 
+    margin:0; 
+    text-align: center;
+    color: white; 
+    font-weight:bold; 
+    position: absolute; 
+    bottom: 0;
+    margin-bottom: -18px;
+    font-size: 14px;
+}
+.preImage {
+    position: absolute;
+    margin-left: 15px;
+    margin-top: 15px;
+    color: #b70000;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.60);
+}
+#signature-pad {
+    text-align: center;
+}
+#signature-pad canvas {
+    width: 80%;
+    height: 300px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+
